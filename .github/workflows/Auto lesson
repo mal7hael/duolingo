@@ -1,0 +1,50 @@
+name: Auto Do a Duolingo lesson
+
+on:
+schedule:
+    - cron: '0 14 * * *'   # 14:00
+    - cron: '2 14 * * *'   # 14:02
+    - cron: '4 14 * * *'   # 14:04
+    - cron: '6 14 * * *'   # 14:06
+    - cron: '8 14 * * *'   # 14:08
+    - cron: '10 14 * * *'  # 14:10
+    - cron: '12 14 * * *'  # 14:12
+    - cron: '14 14 * * *'  # 14:14
+    - cron: '16 14 * * *'  # 14:16
+    - cron: '18 14 * * *'  # 14:18
+    - cron: '20 14 * * *'  # 14:20
+    - cron: '22 14 * * *'  # 14:22
+    - cron: '24 14 * * *'  # 14:24
+    - cron: '26 14 * * *'  # 14:26
+    - cron: '28 14 * * *'  # 14:28
+    - cron: '30 14 * * *'  # 14:30
+    - cron: '32 14 * * *'  # 14:32
+    - cron: '34 14 * * *'  # 14:34
+    - cron: '36 14 * * *'  # 14:36
+    - cron: '38 14 * * *'  # 14:38
+    - cron: '40 14 * * *'  # 14:40
+    - cron: '42 14 * * *'  # 14:42
+    - cron: '44 14 * * *'  # 14:44
+    - cron: '46 14 * * *'  # 14:46
+    - cron: '48 14 * * *'  # 14:48
+    - cron: '50 14 * * *'  # 14:50
+    - cron: '52 14 * * *'  # 14:52
+    - cron: '54 14 * * *'  # 14:54
+    - cron: '56 14 * * *'  # 14:56
+    - cron: '58 14 * * *'  # 14:58
+    - cron: '0 15 * * *'   # 15:00
+
+jobs:
+  study:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: node index.js
+        env:
+          DUOLINGO_JWT: ${{ secrets.DUOLINGO_JWT }}
+          LESSONS: 1
